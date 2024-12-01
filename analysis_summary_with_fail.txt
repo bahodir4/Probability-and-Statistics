@@ -1,0 +1,65 @@
+Descriptive Statistics:
+  GPA_Mean GPA_Median    GPA_SD   GPA_Var GPA_Skewness GPA_Kurtosis
+1 3.611481       3.86 0.6358018 0.4042439    -1.662494     4.850813
+  Attendance_Mean Attendance_SD Study_Hours_Mean Study_Hours_SD
+1        85.74074      16.98097         9.888889       8.026798
+
+
+Correlation Matrix:
+                  GPA Study_Hours Sleep_Hours Attendance Interaction
+GPA         1.0000000   0.4255373  0.41692842  0.6466479  0.50359287
+Study_Hours 0.4255373   1.0000000 -0.17708093  0.4814570  0.93950583
+Sleep_Hours 0.4169284  -0.1770809  1.00000000  0.1272767  0.07289935
+Attendance  0.6466479   0.4814570  0.12727671  1.0000000  0.51790617
+Interaction 0.5035929   0.9395058  0.07289935  0.5179062  1.00000000
+
+
+Kolmogorov-Smirnov Test for GPA Normality:
+
+	Asymptotic one-sample Kolmogorov-Smirnov test
+
+data:  data$GPA
+D = 0.24522, p-value = 0.07776
+alternative hypothesis: two-sided
+
+
+
+T-Test for GPA (Pass vs. Fail):
+
+	Welch Two Sample t-test
+
+data:  GPA by Pass_Fail
+t = -11.708, df = 3.057, p-value = 0.001225
+alternative hypothesis: true difference in means between group Fail and group Pass is not equal to 0
+95 percent confidence interval:
+ -2.205367 -1.270466
+sample estimates:
+mean in group Fail mean in group Pass 
+          2.066667           3.804583 
+
+
+
+95% Confidence Interval for Attendance:
+[1] 79.02329 92.45819
+attr(,"conf.level")
+[1] 0.95
+
+
+ANOVA for GPA by Sleep Quality:
+              Df Sum Sq Mean Sq F value Pr(>F)
+Sleep_Quality  2   1.63   0.815   2.203  0.132
+Residuals     24   8.88   0.370               
+
+
+Tukey HSD Post-Hoc Test:
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = GPA ~ Sleep_Quality, data = data)
+
+$Sleep_Quality
+                  diff        lwr      upr     p adj
+Average-Poor 0.2214286 -0.9965314 1.439389 0.8930994
+Good-Poor    0.6811111 -0.4511316 1.813354 0.3076627
+Good-Average 0.4596825 -0.2169619 1.136327 0.2270669
+
